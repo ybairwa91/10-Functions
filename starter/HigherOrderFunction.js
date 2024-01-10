@@ -25,7 +25,7 @@ transformer('JavaScript is the best', upperFirstWord);
 transformer('javaScript is the best', oneWord);
 
 const high5 = function () {
-  console.log('👏');
+  //   console.log('👏');
 };
 document.body.addEventListener('click', high5);
 
@@ -112,3 +112,22 @@ const bookEW23 = book.bind(eurowings, 23);
 bookEW23('monica');
 bookEW23('mischel');
 bookEW23('crusiter');
+
+//some cases to use these methods
+
+//with event listeners
+lufthansa.planes = 300;
+lufthansa.buyPlane = function () {
+  console.log(this);
+  this.planes++;
+  console.log(this.planes);
+};
+lufthansa.buyPlane();
+
+document
+  .querySelector('.buy')
+  .addEventListener('click', lufthansa.buyPlane.bind(lufthansa));
+
+//Partial application
+const addTax = (rate, value) => value + value * rate;
+console.log(addTax(10, 200));
